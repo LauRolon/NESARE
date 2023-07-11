@@ -151,7 +151,7 @@ genera_perc<-asv_over2abund_final_obj1%>%
 #Genus with Family fill color
 barplot_obj1<- ggplot(asv_over2abund_final_obj1, aes(x = Facility, y = Abundance , fill = Genus))  + 
   geom_bar(stat = "identity", color='black') + 
-  geom_text(aes(label=OTU), position = position_stack(vjust=0.5), size=3)+
+  geom_text(aes(label=Genus), position = position_stack(vjust=0.5), size=3)+
   theme(legend.text=element_text(size=9), legend.title= element_text(size=10, face = 'bold')) +
   theme(axis.title=element_text(size=15),axis.text = element_text(color='black', size=10)) + 
   guides(fill = guide_legend(reverse = FALSE, keywidth = 1, keyheight = 1, ncol=1)) +
@@ -164,9 +164,9 @@ barplot_obj1<- ggplot(asv_over2abund_final_obj1, aes(x = Facility, y = Abundance
   ggtitle("Microbiota of ice cream processing facilities", subtitle = "Genus taxonomic level")+
   theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=15))+
   guides(fill = guide_legend(reverse = FALSE, keywidth = 1, keyheight = 1, ncol=1)) +
-  scale_fill_discrete(name="Genus")
-ggsave("Barplot Obj1.png", plot=barplot_obj1, device="png", width=8, height=13, units="in", dpi=1000)
-ggsave("Barplot Obj1.svg", plot=barplot_obj1, device="svg", width=8, height=13, units="in", dpi=1000)
+  scale_fill_manual(values=c("#9fb26f","#3bac2d","#72e2d6",#b8795b","#7f3194","#b657af","#ea8b34","#638fd3","#dc3f67","#42a892","#b68c3c","#855526"))
+ggsave("Barplot Obj1.png", plot=barplot_obj1, device="png", width=8, height=13, units="in", dpi=600)
+ggsave("Barplot Obj1.svg", plot=barplot_obj1, device="svg", width=8, height=13, units="in", dpi=600)
 
 
 
@@ -319,7 +319,7 @@ PCA_Obj2 <- ggplot(pc_out_meta_obj2, aes(x=PC1,y=PC2, color=Facility, shape=Trea
   scale_x_continuous(name = paste("PC1: ", round(pc.clr_obj2$sdev[1]^2/mvar.clr_obj2*100, digits=1), "%", sep="")) +
   scale_y_continuous(name = paste("PC2: ", round(pc.clr_obj2$sdev[2]^2/mvar.clr_obj2*100, digits=1), "%", sep="")) +
   ggtitle("PCA - Obj 2 by facility")+theme(plot.title = element_text(hjust = 0.5, face = 'bold'))+
-  scale_color_viridis_d(begin = 0.2, end = 0.8, option='inferno')
+    scale_color_manual(values=c("#8a5db2","#e26966","#ea8b34"))
 PCA_Obj2
 ggsave("PCA_Obj2.png", plot=PCA_Obj2, device="png", width=8, height=8, units="in", dpi=600)
 ggsave("PCA_Obj2.svg", plot=PCA_Obj2, device="svg", width=8, height=8, units="in", dpi=600)
@@ -368,7 +368,7 @@ write.csv(asv_Obj2_over2abund, file = 'mean RA Obj2.csv')
 #Stacked barplot by treatment at the ASV level
 barplot_obj2<-ggplot(asv_Obj2_over2abund, aes(x=reorder(Treatment,SampleOrder), y=Mean, fill=Genus))+
   geom_bar(stat='identity', color='black')+facet_grid(.~Facility, scales = "free", space = 'free')+
-  geom_text(aes(label=OTU), position = position_stack(vjust=0.5), size=3)+ylim(0,100)+
+  geom_text(aes(label=Genus), position = position_stack(vjust=0.5), size=3)+ylim(0,100)+
   theme(axis.title = element_text(color='black'), axis.text.x=element_text(color='black', size=10), 
         axis.ticks=element_line(color='black'),
         axis.text.y = element_text(color='black', size=10)) + 
@@ -381,7 +381,8 @@ barplot_obj2<-ggplot(asv_Obj2_over2abund, aes(x=reorder(Treatment,SampleOrder), 
         panel.border = element_rect(color="black", fill=NA))+
   theme(legend.text=element_text(size=10,color='black'), legend.title= element_text(size=10)) +
   ggtitle("Microbiota of biofilms - Obj 2")+theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=12))+
-  theme(plot.margin=margin(t=0.2, b=0.2, l=0.2, r=0.2, unit = 'in'))
+  theme(plot.margin=margin(t=0.2, b=0.2, l=0.2, r=0.2, unit = 'in'))+
+  scale_fill_manual(values=c("#956e89","#3bac2d","#b8795b","#7f3194","#3b7429","#b8b9e8","#8c9942","#b657af","#ea8b34","#337b53","#dc3f67","#cb6ea1","#42a892","#b9424a","#d87969","#aa5822"))
 ggsave("Barplots_obj2.png", plot=barplot_obj2, device="png", width=13, height=10, units="in", dpi=600)
 ggsave("Barplots_obj2.svg", plot=barplot_obj2, device="svg", width=13, height=10, units="in", dpi=600)
 
@@ -599,7 +600,7 @@ PCA_Obj3 <- ggplot(pc_out_meta_obj3, aes(x=PC1,y=PC2, color=Facility, shape=Trea
   scale_x_continuous(name = paste("PC1: ", round(pc.clr_obj3$sdev[1]^2/mvar.clr_obj3*100, digits=1), "%", sep="")) +
   scale_y_continuous(name = paste("PC2: ", round(pc.clr_obj3$sdev[2]^2/mvar.clr_obj3*100, digits=1), "%", sep="")) +
   ggtitle("PCA - Obj 3 by facility")+theme(plot.title = element_text(hjust = 0.5, face = 'bold'))+
-  scale_color_viridis_d(begin = 0.2, end = 0.8, option='inferno')
+  scale_color_manual(values=c("#8a5db2","#e26966","#ea8b34"))
 PCA_Obj3
 ggsave("PCA_Obj3.png", plot=PCA_Obj3, device="png", width=8, height=8, units="in", dpi=600)
 ggsave("PCA_Obj3.svg", plot=PCA_Obj3, device="svg", width=8, height=8, units="in", dpi=600)
@@ -647,7 +648,7 @@ write.csv(asv_Obj3_over2abund, file = 'mean RA Obj3.csv')
 #Stacked barplot by treatment at the ASV level
 barplot_obj3<-ggplot(asv_Obj3_over2abund, aes(x=reorder(Treatment,SampleOrder), y=Mean, fill=Genus))+
   geom_bar(stat='identity', color='black')+facet_grid(.~Facility, scales = "free", space = 'free')+
-  geom_text(aes(label=OTU), position = position_stack(vjust=0.5), size=3)+ylim(0,100)+
+  geom_text(aes(label=Genus), position = position_stack(vjust=0.5), size=3)+ylim(0,100)+
   theme(axis.title = element_text(color='black'), axis.text.x=element_text(color='black', size=10), 
         axis.ticks=element_line(color='black'),
         axis.text.y = element_text(color='black', size=10)) + 
@@ -660,7 +661,8 @@ barplot_obj3<-ggplot(asv_Obj3_over2abund, aes(x=reorder(Treatment,SampleOrder), 
         panel.border = element_rect(color="black", fill=NA))+
   theme(legend.text=element_text(size=10,color='black'), legend.title= element_text(size=10)) +
   ggtitle("Microbiota of biofilms - Obj 3")+theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=12))+
-  theme(plot.margin=margin(t=0.2, b=0.2, l=0.2, r=0.2, unit = 'in'))
+  theme(plot.margin=margin(t=0.2, b=0.2, l=0.2, r=0.2, unit = 'in'))+
+  scale_fill_manual(values=c("#956e89","#74a126","#ea6db0","#b8795b","#b8b9e8","#8c9942","#b657af","#ea8b34","#e15f39","#337b53","#dc3f67","#5c725e","#42a892","#c3617e","#b9424a","#d87969","#aa5822"))
 ggsave("Barplots_obj3.png", plot=barplot_obj3, device="png", width=13, height=10, units="in", dpi=600)
 ggsave("Barplots_obj3.svg", plot=barplot_obj3, device="svg", width=13, height=10, units="in", dpi=600)
 
@@ -674,7 +676,7 @@ asv_Obj3_long_PC <- subset_samples(phyloseq_obj3_RA, Facility=="Control") %>%
 asv_Obj3_over2abund <- filter(asv_Obj3_long_PC, Abundance>2)
 
 
-#Stacked barplot by treatment at the ASV level
+#Stacked barplot by treatment at the ASV level PC
 barplot_obj3_PC<-ggplot(asv_Obj3_over2abund, aes(x=Treatment, y=Abundance, fill=Genus))+
   geom_bar(stat='identity', color='black')+
   geom_text(aes(label=OTU), position = position_stack(vjust=0.5), size=3)+ylim(0,100)+
