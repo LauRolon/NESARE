@@ -53,7 +53,7 @@ exp1_logAPC$TukeyGroups<-tukey_APC_exp1_groups_order$groups
 
 
 #Plot
-exp1_apc<- ggplot(exp1_logAPC, aes(x = reorder(group1,order), y = mean , fill = reorder(group1,order)))  + 
+exp1_apc<- ggplot(exp1_logAPC, aes(x = reorder(group1,order), y = mean , fill = "#d2972d"))  + 
   geom_bar(stat = "identity", color='black', position = position_dodge()) + 
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se),width=.1,position=position_dodge(.4))+
   geom_text(aes(label=TukeyGroups), position=position_dodge(width=0.9), vjust=-0.25)+
@@ -67,8 +67,7 @@ exp1_apc<- ggplot(exp1_logAPC, aes(x = reorder(group1,order), y = mean , fill = 
         panel.border = element_rect(color="black", fill=NA))+
   ggtitle("Control exp. 1 - Aerobic Plate count")+
   theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=15))+
-  scale_y_continuous(limits=c(0,10) ,breaks= seq(0,10, 2))+
-  scale_fill_viridis_d(begin = 0.2, end = 0.8, option='viridis', alpha = 1)
+  scale_y_continuous(limits=c(0,10) ,breaks= seq(0,10, 2))
 exp1_apc
 ggsave("exp1_apc.png", plot=exp1_apc, device="png", width=4, height=5, units="in", dpi=600)
 ggsave("exp1_apc.svg", plot=exp1_apc, device="svg", width=4, height=5, units="in", dpi=600)
@@ -108,7 +107,7 @@ tukey_MPN_exp2_groups_order<-tukey_MPN_exp2_groups[with(tukey_MPN_exp2_groups, o
 exp2_logMPN$TukeyGroups<-tukey_MPN_exp2_groups_order$groups
 
 #Plots
-exp2_apc<- ggplot(exp2_logAPC, aes(x = reorder(group1,order), y = mean , fill = reorder(group1,order)))  + 
+exp2_apc<- ggplot(exp2_logAPC, aes(x = reorder(group1,order), y = mean , fill = "#dea558"))  + 
   geom_bar(stat = "identity", color='black', position = position_dodge()) + 
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se),width=.1,position=position_dodge(.4))+
   geom_text(aes(label=TukeyGroups), position=position_dodge(width=0.9), vjust=-0.25)+
@@ -128,7 +127,7 @@ exp2_apc
 ggsave("exp2_apc.png", plot=exp2_apc, device="png", width=4, height=5, units="in", dpi=600)
 ggsave("exp2_apc.svg", plot=exp2_apc, device="svg", width=4, height=5, units="in", dpi=600)
 
-exp2_mpn<- ggplot(exp2_logMPN, aes(x = reorder(group1,order), y = mean , fill = reorder(group1,order)))  + 
+exp2_mpn<- ggplot(exp2_logMPN, aes(x = reorder(group1,order), y = mean , fill = "#dea558"))  + 
   geom_bar(stat = "identity", color='black', position = position_dodge()) + 
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se),width=.1,position=position_dodge(.4))+
   geom_text(aes(label=TukeyGroups), position=position_dodge(width=0.9), vjust=-0.25)+
@@ -210,7 +209,7 @@ obj2_apc<- ggplot(logAPC, aes(x = reorder(Treatment,order), y = mean , fill = Fa
   ggtitle("Obj2 - Aerobic Plate count")+
   theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=15))+
   scale_y_continuous(limits=c(0,10) ,breaks= seq(0,10, 2))+
-  scale_fill_viridis_d(begin = 0.2, end = 0.8, option='inferno', alpha = 0.8)
+  scale_fill_manua(values=c("#8a5db2","#e26966","ea8b34"))
 obj2_apc
 ggsave("Obj2_apc.png", plot=obj2_apc, device="png", width=4, height=5, units="in", dpi=600)
 ggsave("Obj2_apc.svg", plot=obj2_apc, device="svg", width=4, height=5, units="in", dpi=600)
@@ -232,7 +231,7 @@ obj2_lac<- ggplot(logLAC, aes(x = reorder(Treatment,order), y = mean , fill = Fa
   ggtitle("Obj2 - Lactic acid bacteria count")+
   theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=15))+
   scale_y_continuous(limits=c(0,10) ,breaks= seq(0,10, 2))+
-  scale_fill_viridis_d(begin = 0.2, end = 0.8, option='inferno', alpha = 0.8)
+  scale_fill_manua(values=c("#8a5db2","#e26966","ea8b34"))
 obj2_lac
 ggsave("Obj2_lac.png", plot=obj2_lac, device="png", width=4, height=5, units="in", dpi=600)
 ggsave("Obj2_lac.svg", plot=obj2_lac, device="svg", width=4, height=5, units="in", dpi=600)
@@ -370,7 +369,7 @@ obj3_apc<- ggplot(logAPC_obj3, aes(x = reorder(Treatment,order), y = mean , fill
   ggtitle("obj3 - Aerobic Plate count")+
   theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=15))+
   scale_y_continuous(limits=c(0,10) ,breaks= seq(0,10, 2))+
-  scale_fill_viridis_d(begin = 0.2, end = 0.8, option='inferno', alpha = 0.8)
+  scale_fill_manua(values=c("#8a5db2","#e26966","ea8b34"))
 obj3_apc
 ggsave("obj3_apc.png", plot=obj3_apc, device="png", width=4, height=5, units="in", dpi=600)
 ggsave("obj3_apc.svg", plot=obj3_apc, device="svg", width=4, height=5, units="in", dpi=600)
@@ -392,7 +391,7 @@ obj3_lac<- ggplot(logLAC_obj3, aes(x = reorder(Treatment,order), y = mean , fill
   ggtitle("obj3 - Lactic acid bacteria count")+
   theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=15))+
   scale_y_continuous(limits=c(0,10) ,breaks= seq(0,10, 2))+
-  scale_fill_viridis_d(begin = 0.2, end = 0.8, option='inferno', alpha = 0.8)
+  scale_fill_manua(values=c("#8a5db2","#e26966","ea8b34"))
 obj3_lac
 ggsave("obj3_lac.png", plot=obj3_lac, device="png", width=4, height=5, units="in", dpi=600)
 ggsave("obj3_lac.svg", plot=obj3_lac, device="svg", width=4, height=5, units="in", dpi=600)
@@ -414,7 +413,7 @@ obj3_LM<- ggplot(logLM_obj3, aes(x = reorder(Treatment,order), y = mean , fill =
   ggtitle("obj3 - Log MPN L. monocytogenes")+
   theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=15))+
   scale_y_continuous(limits=c(0,10) ,breaks= seq(0,10, 2))+
-  scale_fill_viridis_d(begin = 0.2, end = 0.8, option='inferno', alpha = 0.8)
+  scale_fill_manua(values=c("#8a5db2","#e26966","ea8b34"))
 obj3_LM
 ggsave("obj3_LM.png", plot=obj3_LM, device="png", width=4, height=5, units="in", dpi=600)
 ggsave("obj3_LM.svg", plot=obj3_LM, device="svg", width=4, height=5, units="in", dpi=600)
@@ -457,7 +456,7 @@ obj3_red<- ggplot(obj3_red_mean, aes(x = Treatment, y = Mean , fill = Facility))
   ggtitle("Obj3 - Lm Log reduction")+
   theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=15))+
   scale_y_continuous(limits=c(-4,6) ,breaks= seq(-4,6, 2))+
-  scale_fill_viridis_d(begin = 0.2, end = 0.8, option='inferno', alpha = 0.8)
+  scale_fill_manua(values=c("#8a5db2","#e26966","ea8b34"))
 obj3_red
 ggsave("Obj3_red.png", plot=obj3_red, device="png", width=4, height=5, units="in", dpi=600)
 ggsave("Obj3_red.svg", plot=obj3_red, device="svg", width=4, height=5, units="in", dpi=600)
@@ -498,7 +497,7 @@ dil_red<- ggplot(dil_red_mean, aes(x = Sample, y = Mean))  +
   ggtitle("Dil - Lm Log reduction")+
   theme(plot.title = element_text(hjust = 0.5, face = 'bold', size=15))+
   scale_y_continuous(limits=c(-4,6) ,breaks= seq(-4,6, 2))+
-  scale_fill_viridis_d(begin = 0.2, end = 0.8, option='inferno', alpha = 0.8)
+  scale_fill_manua(values=c("#8a5db2","#e26966","ea8b34"))
 dil_red
 ggsave("Dilution experiment_reduction.png", plot=dil_red, device="png", width=4, height=5, units="in", dpi=600)
 ggsave("Dilution experiment_reduction.svg", plot=obj3_red, device="svg", width=4, height=5, units="in", dpi=600)
