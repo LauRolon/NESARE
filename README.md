@@ -1,6 +1,7 @@
-# Context matters: environmental microbiota of ice cream processing facilities affects the inhibitory performance of two lactic acid bacteria against <i>Listeria monocytogenes</i>
+# Context matters: environmental microbiota from ice cream processing facilities affected the inhibitory performance of two lactic acid bacteria strains against <i>Listeria monocytogenes </i>
 
-Rolon, M.L., Chandross-Cohen, T., Kaylegian, K.E., Roberts, R.F., Kovac, J. Microbiology Spectrum [in review]
+Rolon, M.L., Chandross-Cohen, T., Kaylegian, K.E., Roberts, R.F., Kovac, J. 2024. Microbiology Spectrum 12(1):01167-23
+https://doi.org/10.1128/spectrum.01167-23
 
 ## Data analysis workflow:
 
