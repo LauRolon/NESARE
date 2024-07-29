@@ -15,9 +15,6 @@ library(dada2)
 #Set working directory
 setwd('/storage/home/mlr355/work/NESARE/3.DADA2/All/')
 
-#Attach libraries
-library(dada2)
-
 #Make path for fastq files
 path_all <- '/storage/home/mlr355/work/NESARE/3.DADA2/All/' 
 list.files(path_all)
@@ -109,7 +106,6 @@ names(dna_all) <- taxa_names(ps_all)
 ps_all <- merge_phyloseq(ps_all, dna_all)
 taxa_names(ps_all) <- paste0("ASV", seq(ntaxa(ps_all)))
 ps_all
-
 
 #Save ASV table as csv
 asvs_all<-as.data.frame(otu_table(ps_all))
