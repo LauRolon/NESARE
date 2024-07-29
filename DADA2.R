@@ -1,7 +1,7 @@
 #DADA2 pipeline applied on NESARE data
 #From https://benjjneb.github.io/dada2/tutorial.html
 
-#Last updated: MLR 12/2/21
+#Last updated: MLR 07/29/2024
 
 #Install DADA2
 
